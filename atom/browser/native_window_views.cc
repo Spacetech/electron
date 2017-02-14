@@ -696,14 +696,9 @@ void NativeWindowViews::Center() {
 }
 
 void NativeWindowViews::Invalidate() {
-#if defined(OS_WIN)
-  const auto nativeWindow = GetNativeWindow();
-  if (nativeWindow) {
-    const gfx::Rect& bounds = GetBounds();
-    nativeWindow->SchedulePaintInRect(
-      gfx::Rect(0, 0, bounds.width(), bounds.height()));
-  }
-#endif
+  const gfx::Rect& bounds = GetBounds();
+  window_->SchedulePaintInRect(
+    gfx::Rect(0, 0, bounds.width(), bounds.height()));
 }
 
 void NativeWindowViews::SetTitle(const std::string& title) {
