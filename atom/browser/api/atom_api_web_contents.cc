@@ -1495,14 +1495,10 @@ void WebContents::Invalidate() {
     if (osr_rwhv)
       osr_rwhv->Invalidate();
   } else {
-    const auto ownerWindow = owner_window();
-    const auto nativeWindow = ownerWindow ? ownerWindow->GetNativeWindow() :
-                                            nullptr;
-    if (nativeWindow) {
-      const gfx::Rect& bounds = nativeWindow->bounds();
-      nativeWindow->SchedulePaintInRect(
-        gfx::Rect(0, 0, bounds.width(), bounds.height()));
-    }
+	  const auto ownerWindow = owner_window();
+	  if (ownerWindow) {
+		  ownerWindow->Invalidate();
+	  }
   }
 }
 
