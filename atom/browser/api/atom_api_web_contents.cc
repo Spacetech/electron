@@ -1495,10 +1495,10 @@ void WebContents::Invalidate() {
     if (osr_rwhv)
       osr_rwhv->Invalidate();
   } else {
-	  const auto ownerWindow = owner_window();
-	  if (ownerWindow) {
-		  ownerWindow->Invalidate();
-	  }
+    const auto ownerWindow = owner_window();
+    if (ownerWindow) {
+      ownerWindow->Invalidate();
+    }
   }
 }
 

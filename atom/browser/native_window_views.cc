@@ -699,8 +699,8 @@ void NativeWindowViews::Invalidate() {
 #if defined(OS_WIN)
   const auto nativeWindow = GetNativeWindow();
   if (nativeWindow) {
-	const gfx::Rect& bounds = GetBounds();
-	nativeWindow->SchedulePaintInRect(
+    const gfx::Rect& bounds = GetBounds();
+    nativeWindow->SchedulePaintInRect(
       gfx::Rect(0, 0, bounds.width(), bounds.height()));
   }
 #endif
